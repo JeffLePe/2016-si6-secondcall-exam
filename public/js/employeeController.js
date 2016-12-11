@@ -6,13 +6,17 @@
             method: "GET",
             url: "/api/employees/" + id
         })
-        .done(student => {
-            console.log(student)
+        .done(funcionario => {
+            $("#name").html(funcionario.name)
+            $("#email").html(funcionario.email)
+            $("#jobTitle").html(funcionario.jobTitle)
+            $("#age").html(funcionario.idade)
+            $("#photo").attr('src', funcionario.photo)
         });
     }
 
     $("form").on("submit", event => {
-        let id = $("#employeeId").val()
+        var id = $("#employeeId").val()
         getEmployeeById(id)
         return false
     })
